@@ -28,11 +28,16 @@ export const Container = styled.div`
 `;
 
 export const Modal = styled.div`
-  transition: animation 200ms ease-in;
   width: 100%;
-  margin: 0 20px;
+  height: 100%;
   background: #121721;
   animation: ${fade} 300ms;
+
+  @media(min-width: 520px) {
+    height: auto;
+    max-width: 520px;
+    margin: 0;
+  }
 `;
 export const ModalHeader = styled.div`
   display: flex;
