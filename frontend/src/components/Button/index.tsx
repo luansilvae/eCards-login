@@ -3,7 +3,7 @@ import { ButtonProps } from "../../types/ButtonProps";
 
 import { Container } from "./styles";
 
-interface ButtonComponentProps extends ButtonProps {
+interface ButtonComponentProps extends React.HTMLProps<HTMLButtonElement>, ButtonProps {
   children: ReactNode;
 };
 
