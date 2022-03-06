@@ -1,5 +1,10 @@
 import { useContext } from "react";
 import ModalContext from "../contexts/ModalContext";
 
-const useModal = () => useContext(ModalContext);
+function useModal() {
+  const { showModal, hideModal } = useContext(ModalContext);
+
+ return { showModal, hideModal }
+}
+
 export default useModal;

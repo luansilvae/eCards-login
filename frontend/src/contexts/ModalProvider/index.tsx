@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
+import FormLogin from "../../components/Form/FormLogin";
+import FormRegister from "../../components/Form/FormRegister";
 import { ContextProps } from "../../types/ContextProps";
 import { ModalProps } from "../../types/ModalProps";
 import ModalContext from "../ModalContext";
@@ -15,7 +17,7 @@ import {
   OptionsButtons,
   GoogleIcon,
   TwitchIcon,
-  DiscordIcon
+  DiscordIcon,
 } from "./styles";
 
 export const ModalProvider: React.FC = ({ children }) => {
@@ -64,17 +66,6 @@ export const ModalProvider: React.FC = ({ children }) => {
               </CloseButton>
             </ModalHeader>
             <SignOptions>
-              {action === "register" && (
-                <span>
-                  Já possui uma conta? <strong>Entrar Agora</strong>
-                </span>
-              )}
-              {action === "login" && (
-                <span>
-                  Não possui uma conta? <strong>Cadastre-se Agora</strong>
-                </span>
-              )}
-
               <OptionsButtons>
                 <Button background="#fff" color="#121721" borderColor="#fff">
                   <GoogleIcon /> Continuar com Google
@@ -89,6 +80,9 @@ export const ModalProvider: React.FC = ({ children }) => {
 
               <span>Ou</span>
             </SignOptions>
+
+            {action === "login" && <FormLogin />}
+            {action === "register" && <FormRegister />}
           </Modal>
         </Container>
       )}

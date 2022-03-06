@@ -16,7 +16,6 @@ const fade = keyframes`
   }
 `;
 
-
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -25,21 +24,21 @@ export const Container = styled.div`
   top: 0px;
   left: 0px;
   z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
 `;
 
 export const Modal = styled.div`
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: #121721;
   animation: ${fade} 300ms;
 
   @media(min-width: 520px) {
+    min-height: 0;
     height: auto;
     max-width: 520px;
-    margin: 0;
+    margin: 30px auto;
   }
 `;
 export const ModalHeader = styled.div`
