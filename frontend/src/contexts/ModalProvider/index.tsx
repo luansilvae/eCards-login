@@ -1,9 +1,22 @@
-import React, { HTMLAttributes, useState } from "react";
+import React, { useState } from "react";
+import Button from "../../components/Button";
 import { ContextProps } from "../../types/ContextProps";
 import { ModalProps } from "../../types/ModalProps";
 import ModalContext from "../ModalContext";
 
-import { Container, Modal, ModalHeader, Title, CloseButton, CloseIcon } from './styles'
+import {
+  Container,
+  Modal,
+  ModalHeader,
+  Title,
+  CloseButton,
+  CloseIcon,
+  SignOptions,
+  OptionsButtons,
+  GoogleIcon,
+  TwitchIcon,
+  DiscordIcon
+} from "./styles";
 
 export const ModalProvider: React.FC = ({ children }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -50,8 +63,32 @@ export const ModalProvider: React.FC = ({ children }) => {
                 <CloseIcon />
               </CloseButton>
             </ModalHeader>
-            {action === "register" && <strong>Cadastro</strong>}
-            {action === "login" && <strong>Login</strong>}
+            <SignOptions>
+              {action === "register" && (
+                <span>
+                  Já possui uma conta? <strong>Entrar Agora</strong>
+                </span>
+              )}
+              {action === "login" && (
+                <span>
+                  Não possui uma conta? <strong>Cadastre-se Agora</strong>
+                </span>
+              )}
+
+              <OptionsButtons>
+                <Button background="#fff" color="#121721" borderColor="#fff">
+                  <GoogleIcon /> Continuar com Google
+                </Button>
+                <Button background="#4A5C82" color="#fff" borderColor="#4A5C82">
+                  <DiscordIcon /> Continuar com Discord
+                </Button>
+                <Button background="#252E41" color="#fff" borderColor="#252E41">
+                  <TwitchIcon /> Continuar com Twitch
+                </Button>
+              </OptionsButtons>
+
+              <span>Ou</span>
+            </SignOptions>
           </Modal>
         </Container>
       )}

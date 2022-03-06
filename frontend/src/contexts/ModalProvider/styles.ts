@@ -1,5 +1,8 @@
-import styled, { keyframes } from "styled-components";
-
+import styled, { css, keyframes } from "styled-components";
+import { FiTwitch } from 'react-icons/fi'
+import { FaDiscord } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
+ 
 import { VscClose } from "react-icons/vsc";
 
 const fade = keyframes`
@@ -43,7 +46,7 @@ export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 30px;
   border-bottom: solid 1px #374562;
 `;
 export const Title = styled.h2`
@@ -70,3 +73,40 @@ export const CloseIcon = styled(VscClose)`
   width: 28px;
   height: 28px;
 `;
+
+export const SignOptions = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px;
+  gap: 30px;
+
+  span { 
+    color: #C5CCD9;
+    font-size: 14px;
+    text-align: center;
+
+    strong { 
+      margin-left: 5px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+`
+
+export const OptionsButtons = styled.nav`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+const iconStyle = css`
+  width: 20px;
+  height: 20px;
+`
+
+export const GoogleIcon = styled(FcGoogle)`${iconStyle}`
+export const TwitchIcon = styled(FiTwitch)`${iconStyle}`
+export const DiscordIcon = styled(FaDiscord)`${iconStyle}`
