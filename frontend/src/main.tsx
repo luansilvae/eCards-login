@@ -1,4 +1,10 @@
 import { render } from "react-dom";
 import App from "./App";
+import { ModalProvider } from "./contexts/ModalProvider";
 
-render(<App />, document.getElementById("root"));
+render(
+  <ModalProvider>
+    <App />
+  </ModalProvider>,
+  document.getElementById("root")
+);
