@@ -9,7 +9,7 @@ import { useAuth } from "../../contexts/AuthProvider/useAuth";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Insira um formatio válido de e-mail")
+    .email("Insira um formato válido de e-mail")
     .max(255)
     .required("O campo e-mail é obrigatório"),
   password: Yup.string().required("O campo senha é obrigatório"),
