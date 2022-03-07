@@ -29,7 +29,7 @@ class UserController {
 
       return res.json(user)
     } catch (err: any) {
-      return res.status(400).json({ error: err.message })
+      return res.json({ error: err })
     }
   }
 }

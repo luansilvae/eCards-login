@@ -31,10 +31,10 @@ class UserService {
         }
       })
     } else {
-      throw new Error('Uma conta com esse email já existe.')
+      throw { email: 'Uma conta com esse email já existe.' }
     }
 
-    return true
+    return { success: true }
   }
 
   async login(email: string, password: string) {
