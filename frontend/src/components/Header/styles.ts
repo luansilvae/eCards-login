@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MdLogout } from "react-icons/md";
 
 export const Container = styled.div`
   width: 100vw;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   background: #121721;
 
-  @media(min-width: 768px) {
+  @media(min-width: 450px) {
     height: 90px;
   }
 `;
@@ -23,7 +24,7 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   gap: 20px;
 
-  @media(min-width: 768px) {
+  @media(min-width: 450px) {
     flex-direction: row;
     padding: 0 20px;
   }
@@ -48,4 +49,9 @@ export const Logo = styled.span`
 export const Menu = styled.nav`
  display: flex;
  gap: 20px;
+`
+
+export const SignOutIcon = styled(MdLogout)`
+  width: 20px;
+  height: 20px;
 `

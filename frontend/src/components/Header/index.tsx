@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthProvider/useAuth";
 import useModal from "../../hooks/useModal";
 import Button from "../Button";
 
-import { Container, HeaderWrapper, Logo, Menu } from "./styles";
+import { Container, HeaderWrapper, Logo, Menu, SignOutIcon } from "./styles";
 
 const Header: React.FC = () => {
   const { showModal } = useModal();
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
                 navigate("/");
               }}
             >
-              Sair
+              <SignOutIcon /> Sair 
             </Button>
           </Menu>
         ) : (
