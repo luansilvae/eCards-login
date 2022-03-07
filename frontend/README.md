@@ -22,6 +22,8 @@ Este projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 
 - [**Axios**](https://www.npmjs.com/package/axios)
 
+- [**Formik**](https://formik.org/docs/overview)
+
 
 ## 🔧 Instalação e execução
 
