@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import { api } from '../../services/api'
-import { AuthContextData, AuthProps, IUser, IUserLoginResponse } from './types'
+import { AuthContextData, AuthProps, IUser, IUserLoginResponse, IUserRegisterResponse } from './types'
 import { getUserLocalStorage, setUserLocalStorage } from './utils'
 
 export const AuthContext = createContext({} as AuthContextData)
@@ -39,6 +39,22 @@ export function AuthProvider(props: AuthProps) {
     return true
   }
 
+  const register = async (user: IUser) => {
+    const axiosConfig = {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    }
+
+    const { data } : IUserRegisterResponse = await api.post('register', user, axiosConfig)
+
+    if (data.error) {
+      return data
+    }
+
+    return data
+  }
+
   const signOut = () => {
     setAuthenticated(false)
     localStorage.removeItem('token')
@@ -46,7 +62,7 @@ export function AuthProvider(props: AuthProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, authenticated, loading }}>
+    <AuthContext.Provider value={{ signIn, register, signOut, authenticated, loading }}>
       {props.children}
     </AuthContext.Provider>
   )

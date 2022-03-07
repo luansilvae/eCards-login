@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import { Container, InputGroup, SignIcon } from "./styles";
 import Button from "../Button";
 import useModal from "../../hooks/useModal";
+import { useAuth } from "../../contexts/AuthProvider/useAuth";
 
-const LoginSchema = Yup.object().shape({
+const RegisterSchema = Yup.object().shape({
   name: Yup.string().required("O campo nome é obrigatório"),
   email: Yup.string()
     .email("Insira um formatio válido de e-mail")
@@ -17,6 +18,7 @@ const LoginSchema = Yup.object().shape({
 
 const FormRegister: React.FC = () => {
   const { showModal, hideModal } = useModal();
+  const { register, signIn } = useAuth();
 
   return (
     <Container>
@@ -26,9 +28,20 @@ const FormRegister: React.FC = () => {
           email: "",
           password: "",
         }}
-        validationSchema={LoginSchema}
+        validationSchema={RegisterSchema}
         onSubmit={async (values, actions) => {
-          alert(JSON.stringify(values));
+          const response = await register(values);
+          if (response.error) {
+            const { email } = response.error;
+
+            if (email) {
+              actions.setFieldError("email", email);
+            }
+
+          } else {
+            hideModal();
+            signIn(values)
+          }
         }}
       >
         {({ errors, touched, isValid }) => (
