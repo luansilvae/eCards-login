@@ -1,8 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import { useAuth } from "../../contexts/AuthProvider/useAuth";
+import { getUserLocalStorage } from "../../contexts/AuthProvider/utils";
+
+interface UserData {
+  user: { id: string; email: string };
+}
 
 export function Home() {
   const { loading } = useAuth();
+
+  const token = getUserLocalStorage();
+  const {
+    user: { id, email },
+  }: UserData = jwt_decode(token);
 
   return (
     <div>
@@ -10,7 +20,7 @@ export function Home() {
         <span>Carregando...</span>
       ) : (
         <div>
-          <h1>Página privada</h1>
+          <h1>Usuário logado: {email}</h1>
         </div>
       )}
     </div>
