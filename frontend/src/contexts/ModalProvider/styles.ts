@@ -78,7 +78,7 @@ export const SignOptions = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 30px;
+  padding: 30px 30px 0;
   gap: 30px;
 
   span { 

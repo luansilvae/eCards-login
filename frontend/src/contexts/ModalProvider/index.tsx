@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
+import FormForgotPassword from "../../components/Form/FormForgotPassword";
 import FormLogin from "../../components/Form/FormLogin";
 import FormRegister from "../../components/Form/FormRegister";
 import { ContextProps } from "../../types/ContextProps";
@@ -65,24 +66,36 @@ export const ModalProvider: React.FC = ({ children }) => {
                 <CloseIcon />
               </CloseButton>
             </ModalHeader>
-            <SignOptions>
-              <OptionsButtons>
-                <Button background="#fff" color="#121721" borderColor="#fff">
-                  <GoogleIcon /> Continuar com Google
-                </Button>
-                <Button background="#4A5C82" color="#fff" borderColor="#4A5C82">
-                  <DiscordIcon /> Continuar com Discord
-                </Button>
-                <Button background="#252E41" color="#fff" borderColor="#252E41">
-                  <TwitchIcon /> Continuar com Twitch
-                </Button>
-              </OptionsButtons>
 
-              <span>Ou</span>
-            </SignOptions>
+            {action !== "forgot_password" && (
+              <SignOptions>
+                <OptionsButtons>
+                  <Button background="#fff" color="#121721" borderColor="#fff">
+                    <GoogleIcon /> Continuar com Google
+                  </Button>
+                  <Button
+                    background="#4A5C82"
+                    color="#fff"
+                    borderColor="#4A5C82"
+                  >
+                    <DiscordIcon /> Continuar com Discord
+                  </Button>
+                  <Button
+                    background="#252E41"
+                    color="#fff"
+                    borderColor="#252E41"
+                  >
+                    <TwitchIcon /> Continuar com Twitch
+                  </Button>
+                </OptionsButtons>
+
+                <span>Ou</span>
+              </SignOptions>
+            )}
 
             {action === "login" && <FormLogin />}
             {action === "register" && <FormRegister />}
+            {action === "forgot_password" && <FormForgotPassword />}
           </Modal>
         </Container>
       )}

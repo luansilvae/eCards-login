@@ -86,6 +86,16 @@ const FormLogin: React.FC = () => {
                 Cadastre-se Agora
               </strong>
             </span>
+            <span>
+              <strong
+                onClick={() => {
+                  hideModal();
+                  showModal({ title: "Esqueceu a senha?", action: "forgot_password" });
+                }}
+              >
+                Esqueceu sua senha?
+              </strong>
+            </span>
           </Form>
         )}
       </Formik>
